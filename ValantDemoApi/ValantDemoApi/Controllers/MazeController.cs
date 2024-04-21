@@ -48,7 +48,12 @@ namespace ValantDemoApi.Controllers
             {
                 return "Invalid file type";
             }
+
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "uploads", file.FileName);
+            if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "uploads")))
+            {
+                Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "uploads"));
+            }
 
             using (var stream = new FileStream(filePath, FileMode.Create))
             {

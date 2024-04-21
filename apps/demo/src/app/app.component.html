@@ -5,4 +5,56 @@
 <main>
   <h2>Hi there</h2>
   <p>Thanks for being you.</p>
+  <div class="container">
+    <div class="column">
+      <div>
+        <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload />
+        <div class="file-upload">
+          <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">Upload</button>
+        </div>
+      </div>
+      <br />
+      <div class="upload">
+        <h1>Controls</h1>
+        <div class="grid">
+          <div class="box"></div>
+          <div class="box">
+            <button [disabled]="showSuccessAlert" (click)="Move($event.target.textContent)">{{ directions[0] }}</button>
+          </div>
+          <div class="box"></div>
+          <div class="box">
+            <button [disabled]="showSuccessAlert" (click)="Move($event.target.textContent)">{{ directions[2] }}</button>
+          </div>
+          <div class="box"></div>
+          <div class="box">
+            <button [disabled]="showSuccessAlert" (click)="Move($event.target.textContent)">{{ directions[3] }}</button>
+          </div>
+          <div class="box"></div>
+          <div class="box">
+            <button [disabled]="showSuccessAlert" (click)="Move($event.target.textContent)">{{ directions[1] }}</button>
+          </div>
+          <div class="box"></div>
+        </div>
+      </div>
+    </div>
+    <div class="column-3">
+      <table>
+        <tr *ngFor="let temp of template">
+          <td
+            *ngFor="let t of temp"
+            [ngClass]="t == 'S' ? 'startMaze' : t == 'E' ? 'exitMaze' : t == 'X' ? 'obstacles' : ''"
+          >
+            <div>{{ t }}</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="column">
+      <div *ngIf="showSuccessAlert">
+        <h2 class="alert-success">
+          Great!!! The Maze was solved. <br /> Please refresh the page to load a new Maze
+        </h2>
+      </div>
+    </div>
+  </div>
 </main>

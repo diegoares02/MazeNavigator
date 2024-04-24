@@ -20,6 +20,13 @@ header {
   color: white;
   padding: 5px;
 }
+.upload{
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 10%;
+  left: 50%;
+  top: 50%;
+}
 
 main {
   padding: 0 36px;
@@ -39,4 +46,103 @@ h2 {
   text-align: center;
   font-size: 20px;
   margin: 40px 0 10px 0;
+}
+
+.container {
+  display: flex; /* Make the container a flexbox */
+}
+
+.column {
+  flex: 1; /* Make each column take up equal space */
+  padding: 20px; /* Add some padding for visual separation */
+}
+
+.column-3 {
+  flex: 3; /* Make each column take up equal space */
+  padding: 10px; /* Add some padding for visual separation */
+}
+
+.file-input {
+  display: none;
+}
+td{
+  padding: 20px;
+}
+.startMaze{
+  background-color: blue;
+}
+.exitMaze{
+  background-color: red;
+}
+.obstacles{
+  background-color: black;
+}
+
+/* CSS */
+button {
+  appearance: none;
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+button:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+button:hover {
+  background-color: #2c974b;
+}
+
+button:focus {
+  box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+  outline: none;
+}
+
+button:disabled {
+  background-color: #94d3a2;
+  border-color: rgba(27, 31, 35, .1);
+  color: rgba(255, 255, 255, .8);
+  cursor: default;
+}
+
+button:active {
+  background-color: #298e46;
+  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+.grid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+/* Styling */
+.box {
+  text-align: center;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.alert-success{ 
+  color: #2ea44f;
 }

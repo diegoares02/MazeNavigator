@@ -1,20 +1,24 @@
 import { of } from 'rxjs';
+import { TestBed } from '@angular/core/testing';
 import { Shallow } from 'shallow-render';
 import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
 import { LoggingService } from './logging/logging.service';
 import { SilentLogger } from './logging/silent-logger';
 import { StuffService } from './stuff/stuff.service';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ControlServiceService } from './service/control-service.service';
+import { ValantDemoApiClient } from './api-client/api-client';
 const mockStuffService = { getStuff: jest.fn(() => of([])) };
-
+const mockControlService = { getControls: jest.fn(() => of([])) };
 describe('AppComponent', () => {
   let component: Shallow<AppComponent>;
 
   beforeEach(() => {
     component = new Shallow(AppComponent, AppModule)
       .provideMock({ provide: StuffService, useValue: mockStuffService })
-      .provideMock({ provide: LoggingService, useClass: SilentLogger });
+      .provideMock({ provide: LoggingService, useClass: SilentLogger })
+      .provideMock({ provide: ControlServiceService, useValue: mockControlService});
     jest.clearAllMocks();
   });
 
